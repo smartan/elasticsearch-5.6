@@ -1,0 +1,100 @@
+[[es-release-notes]]
+= Release Notes
+
+[partintro]
+--
+This section summarizes the changes in each release.
+
+* <<release-notes-5.6.14>>
+* <<release-notes-5.6.13>>
+* <<release-notes-5.6.12>>
+* <<release-notes-5.6.11>>
+* <<release-notes-5.6.10>>
+* <<release-notes-5.6.9>>
+* <<release-notes-5.6.8>>
+* <<release-notes-5.6.7>>
+* <<release-notes-5.6.6>>
+* <<release-notes-5.6.5>>
+* <<release-notes-5.6.4>>
+* <<release-notes-5.6.3>>
+* <<release-notes-5.6.2>>
+* <<release-notes-5.6.1>>
+* <<release-notes-5.6.0>>
+* <<release-notes-5.5.3>>
+* <<release-notes-5.5.2>>
+* <<release-notes-5.5.1>>
+* <<release-notes-5.5.0>>
+* <<release-notes-5.4.3>>
+* <<release-notes-5.4.2>>
+* <<release-notes-5.4.1>>
+* <<release-notes-5.4.0>>
+* <<release-notes-5.3.3>>
+* <<release-notes-5.3.2>>
+* <<release-notes-5.3.1>>
+* <<release-notes-5.3.0>>
+* <<release-notes-5.2.2>>
+* <<release-notes-5.2.1>>
+* <<release-notes-5.2.0>>
+* <<release-notes-5.1.2>>
+* <<release-notes-5.1.1>>
+* <<release-notes-5.1.0>>
+* <<release-notes-5.0.2>>
+* <<release-notes-5.0.1>>
+* <<release-notes-5.0.0>>
+* <<release-notes-5.0.0-GA>>
+* <<release-notes-5.0.0-rc1>>
+* <<release-notes-5.0.0-beta1>>
+* <<release-notes-5.0.0-alpha5>>
+* <<release-notes-5.0.0-alpha4>>
+* <<release-notes-5.0.0-alpha3>>
+* <<release-notes-5.0.0-alpha2>>
+* <<release-notes-5.0.0-alpha1>>
+* <<release-notes-5.0.0-alpha1-2x>>
+
+--
+
+include::release-notes/5.6.14.asciidoc[]
+include::release-notes/5.6.13.asciidoc[]
+include::release-notes/5.6.12.asciidoc[]
+include::release-notes/5.6.11.asciidoc[]
+include::release-notes/5.6.10.asciidoc[]
+include::release-notes/5.6.9.asciidoc[]
+include::release-notes/5.6.8.asciidoc[]
+include::release-notes/5.6.7.asciidoc[]
+include::release-notes/5.6.6.asciidoc[]
+include::release-notes/5.6.5.asciidoc[]
+include::release-notes/5.6.4.asciidoc[]
+include::release-notes/5.6.3.asciidoc[]
+include::release-notes/5.6.2.asciidoc[]
+include::release-notes/5.6.1.asciidoc[]
+include::release-notes/5.6.0.asciidoc[]
+include::release-notes/5.5.3.asciidoc[]
+include::release-notes/5.5.2.asciidoc[]
+include::release-notes/5.5.1.asciidoc[]
+include::release-notes/5.5.0.asciidoc[]
+include::release-notes/5.4.3.asciidoc[]
+include::release-notes/5.4.2.asciidoc[]
+include::release-notes/5.4.1.asciidoc[]
+include::release-notes/5.4.0.asciidoc[]
+include::release-notes/5.3.3.asciidoc[]
+include::release-notes/5.3.2.asciidoc[]
+include::release-notes/5.3.1.asciidoc[]
+include::release-notes/5.3.0.asciidoc[]
+include::release-notes/5.2.2.asciidoc[]
+include::release-notes/5.2.1.asciidoc[]
+include::release-notes/5.2.0.asciidoc[]
+include::release-notes/5.1.2.asciidoc[]
+include::release-notes/5.1.1.asciidoc[]
+include::release-notes/5.1.0.asciidoc[]
+include::release-notes/5.0.2.asciidoc[]
+include::release-notes/5.0.1.asciidoc[]
+include::release-notes/5.0.0-all.asciidoc[]
+include::release-notes/5.0.0.asciidoc[]
+include::release-notes/5.0.0-rc1.asciidoc[]
+include::release-notes/5.0.0-beta1.asciidoc[]
+include::release-notes/5.0.0-alpha5.asciidoc[]
+include::release-notes/5.0.0-alpha4.asciidoc[]
+include::release-notes/5.0.0-alpha3.asciidoc[]
+include::release-notes/5.0.0-alpha2.asciidoc[]
+include::release-notes/5.0.0-alpha1.asciidoc[]
+include::release-notes/5.0.0-alpha1-2x.asciidoc[]

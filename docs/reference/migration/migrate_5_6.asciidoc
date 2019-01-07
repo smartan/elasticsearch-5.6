@@ -1,0 +1,43 @@
+[[breaking-changes-5.6]]
+== Breaking changes in 5.6
+
+[[breaking_56_clients]]
+[float]
+=== Java High Level REST Client
+
+Starting from version 5.6.0 a new Java client has been released: the Java High Level REST Client.
+This official high-level client (named like this to differentiate it from the existing low-level client) for
+Elasticsearch can be used to execute search, index, delete, update and bulk operations using the same Core
+Java classes as the `TransportClient` uses.
+
+This Java High Level REST Client is designed to replace the `TransportClient` in a near future.
+
+[[breaking_56_packaging_changes]]
+[float]
+=== RPM and Debian packages `setgid` on `/etc/elasticsearch`
+
+The RPM and Debian packages now set the `setgid` flag on `/etc/elasticsearch` so
+that any files and subdirectories created under `/etc/elasticsearch` have the
+same ownership as `/etc/elasticsearch` (`root:elasticsearch`). This is used to
+ensure that files and subdirectories created under `/etc/elasticsearch` (e.g., a
+keystore) are readable by the `elasticsearch` user.
+
+[float]
+=== Bootstrap checks now apply to link-local addresses
+
+Previously when Elasticsearch was bound to localhost, Elasticsearch would bind
+to any address on the loopback device. This included link-local addresses on the
+loopback device such as `fe80::1%lo0` on macOS. Starting in 5.6.6, Elasticsearch
+will now only bind to loopback addresses on the loopback device. Because of the
+previous behavior, Elasticsearch would skip the bootstrap checks if bound to a
+link-local address. Now that Elasticsearch no longer binds to such addresses
+when binding to localhost, the bootstrap checks now apply to link-local
+addresses.
+
+[float]
+=== Referencing Parent Documents
+
+Previously in Elasticsearch parent documents could be aggregated on or 
+referenced in a script using `_parent`. Now in order to reference a parent 
+document in an aggregation or script you must do `_parent#my_parent` as stated 
+in the <<mapping-parent-field,mapping a parent field documentation>>.

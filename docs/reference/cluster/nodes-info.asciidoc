@@ -1,0 +1,224 @@
+[[cluster-nodes-info]]
+== Nodes Info
+
+The cluster nodes info API allows to retrieve one or more (or all) of
+the cluster nodes information.
+
+[source,js]
+--------------------------------------------------
+curl -XGET 'http://localhost:9200/_nodes'
+curl -XGET 'http://localhost:9200/_nodes/nodeId1,nodeId2'
+--------------------------------------------------
+
+The first command retrieves information of all the nodes in the cluster.
+The second command selectively retrieves nodes information of only
+`nodeId1` and `nodeId2`. All the nodes selective options are explained
+<<cluster-nodes,here>>.
+
+By default, it just returns all attributes and core settings for a node:
+
+[float]
+[[core-info]]
+
+`build_hash`::
+	Short hash of the last git commit in this release.
+
+`host`::
+	The node's host name.
+
+`ip`::
+	The node's IP address.
+
+`name`::
+	The node's name.
+
+`total_indexing_buffer`::
+	Total heap allowed to be used to hold recently indexed
+	documents before they must be written to disk.  This size is
+	a shared pool across all shards on this node, and is
+        controlled by <<indexing-buffer,Indexing Buffer settings>>.
+
+`total_indexing_buffer_in_bytes`::
+	Same as `total_indexing_buffer`, but expressed in bytes.
+
+`transport_address`::
+	Host and port where transport HTTP connections are accepted.
+
+`version`::
+	Elasticsearch version running on this node.
+
+It also allows to get only information on `settings`, `os`, `process`, `jvm`,
+`thread_pool`, `transport`, `http`, `plugins`, `ingest` and `indices`:
+
+[source,js]
+--------------------------------------------------
+curl -XGET 'http://localhost:9200/_nodes/process'
+curl -XGET 'http://localhost:9200/_nodes/_all/process'
+curl -XGET 'http://localhost:9200/_nodes/nodeId1,nodeId2/jvm,process'
+# same as above
+curl -XGET 'http://localhost:9200/_nodes/nodeId1,nodeId2/info/jvm,process'
+
+curl -XGET 'http://localhost:9200/_nodes/nodeId1,nodeId2/_all
+--------------------------------------------------
+
+The `_all` flag can be set to return all the information - or you can simply omit it.
+
+[float]
+[[os-info]]
+==== Operating System information
+
+The `os` flag can be set to retrieve information that concern
+the operating system:
+
+`os.refresh_interval_in_millis`::
+	Refresh interval for the OS statistics
+
+`os.name`::
+	Name of the operating system (ex: Linux, Windows, Mac OS X)
+
+`os.arch`::
+	Name of the JVM architecture (ex: amd64, x86)
+
+`os.version`::
+	Version of the operating system
+
+`os.available_processors`::
+	Number of processors available to the Java virtual machine
+
+`os.allocated_processors`::
+    The number of processors actually used to calculate thread pool size. This number can be set
+    with the `processors` setting of a node and defaults to the number of processors reported by the OS.
+    In both cases this number will never be larger than 32.
+
+[float]
+[[process-info]]
+==== Process information
+
+The `process` flag can be set to retrieve information that concern
+the current running process:
+
+`process.refresh_interval_in_millis`::
+	Refresh interval for the process statistics
+
+`process.id`::
+	Process identifier (PID)
+
+`process.mlockall`::
+	Indicates if the process address space has been successfully locked in memory
+
+[float]
+[[plugins-info]]
+==== Plugins information
+
+`plugins` - if set, the result will contain details about the installed plugins
+ per node:
+
+* `name`: plugin name
+* `version`: version of Elasticsearch the plugin was built for
+* `description`: short description of the plugin's purpose
+* `classname`: fully-qualified class name of the plugin's entry point
+* `has_native_controller`: whether or not the plugin has a native controller process
+
+The result will look similar to:
+
+[source,js]
+--------------------------------------------------
+{
+  "cluster_name": "elasticsearch",
+  "nodes": {
+    "O70_wBv6S9aPPcAKdSUBtw": {
+      "plugins": [
+        {
+          "name": "analysis-icu",
+          "version": "{version}",
+          "description": "The ICU Analysis plugin integrates Lucene ICU module into elasticsearch, adding ICU relates analysis components.",
+          "classname": "org.elasticsearch.plugin.analysis.icu.AnalysisICUPlugin",
+          "has_native_controller": false
+        },
+        {
+          "name": "ingest-geoip",
+          "version": "{version}",
+          "description": "Ingest processor that uses looksup geo data based on ip adresses using the Maxmind geo database",
+          "classname": "org.elasticsearch.ingest.geoip.IngestGeoIpPlugin",
+          "has_native_controller": false
+        },
+        {
+          "name": "ingest-user-agent",
+          "version": "{version}",
+          "description": "Ingest processor that extracts information from a user agent",
+          "classname": "org.elasticsearch.ingest.useragent.IngestUserAgentPlugin",
+          "has_native_controller": false
+        }
+      ]
+    }
+  }
+}
+--------------------------------------------------
+
+[float]
+[[ingest-info]]
+==== Ingest information
+
+`ingest` - if set, the result will contain details about the available
+processors per node:
+
+* `type`: the processor type
+
+The result will look similar to:
+
+[source,js]
+--------------------------------------------------
+{
+  "cluster_name": "elasticsearch",
+  "nodes": {
+    "O70_wBv6S9aPPcAKdSUBtw": {
+      "ingest": {
+        "processors": [
+          {
+            "type": "date"
+          },
+          {
+            "type": "uppercase"
+          },
+          {
+            "type": "set"
+          },
+          {
+            "type": "lowercase"
+          },
+          {
+            "type": "gsub"
+          },
+          {
+            "type": "convert"
+          },
+          {
+            "type": "remove"
+          },
+          {
+            "type": "fail"
+          },
+          {
+            "type": "foreach"
+          },
+          {
+            "type": "split"
+          },
+          {
+            "type": "trim"
+          },
+          {
+            "type": "rename"
+          },
+          {
+            "type": "join"
+          },
+          {
+            "type": "append"
+          }
+        ]
+      }
+    }
+  }
+}
+--------------------------------------------------
